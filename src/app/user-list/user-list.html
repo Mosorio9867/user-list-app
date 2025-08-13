@@ -1,0 +1,23 @@
+<div class="container">
+    <input type="text" [(ngModel)]="searchQuery" (input)="onSearchQueryChange()" placeholder="Buscar por nombre..." />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Correo Electrónico</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Compañía</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of filteredUsers$ | async">
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.address.street }}, {{ user.address.city }}, {{ user.address.zipcode }}</td>
+                <td>{{ user.company.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
